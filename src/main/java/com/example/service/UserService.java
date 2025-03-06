@@ -1,6 +1,7 @@
 package com.example.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,8 +26,13 @@ public class UserService {
     }
 
     //method to update users
-    public User updatUser(User user){
+    public User updateUser(User user){
         return userRepository.save(user);
     }
-
+    public Optional<User> getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+    public void deleteUser(String id) {
+        userRepository.deleteById(id);
+    }
 }
