@@ -24,4 +24,9 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    //method to update users
+    public User updatUser(User user){
+        return userRepository.save(user);
+    }
+
 }
